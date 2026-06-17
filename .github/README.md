@@ -73,36 +73,6 @@ docker compose pull && docker compose up -d
 
 URL подключения к базе данных (`jdbc:postgresql://postgres:5432/easydesk`) задан в `docker-compose.yml` и не требует настройки.
 
-### Канал: Email
-
-Канал необязателен. Если Email не используется, переменные можно не задавать.
-
-| Переменная | Описание |
-|---|---|
-| `CHANNEL_EMAIL_IMAP_HOST` | Адрес IMAP-сервера |
-| `CHANNEL_EMAIL_IMAP_USERNAME` | Имя пользователя IMAP |
-| `CHANNEL_EMAIL_IMAP_PASSWORD` | Пароль IMAP |
-| `CHANNEL_EMAIL_SMTP_HOST` | Адрес SMTP-сервера |
-| `CHANNEL_EMAIL_SMTP_USERNAME` | Имя пользователя SMTP |
-| `CHANNEL_EMAIL_SMTP_PASSWORD` | Пароль SMTP |
-
-### Канал: Telegram
-
-| Переменная | Описание |
-|---|---|
-| `CHANNEL_TELEGRAM_BOT_TOKEN` | Токен бота для получения сообщений от клиентов |
-| `CHANNEL_TELEGRAM_WEBHOOK_SECRET` | Секрет для проверки подлинности webhook-запросов |
-
-### Канал: ВКонтакте
-
-Канал необязателен. Если ВКонтакте не используется, переменные можно не задавать.
-
-| Переменная | Описание |
-|---|---|
-| `CHANNEL_VK_COMMUNITY_TOKEN` | Токен сообщества VK |
-| `CHANNEL_VK_CALLBACK_SECRET` | Секрет для проверки подлинности Callback API |
-| `CHANNEL_VK_CONFIRMATION_CODE` | Код подтверждения Callback API |
-
 ### Супервизор: Telegram
 
 Бот создаёт топик в Telegram-супергруппе для каждого тикета и ведёт переписку с клиентами от имени поддержки.
@@ -112,6 +82,12 @@ URL подключения к базе данных (`jdbc:postgresql://postgres
 | `TELEGRAM_SUPERVISOR_BOT_TOKEN` | Токен бота-оператора |
 | `TELEGRAM_SUPERVISOR_GROUP_ID` | ID супергруппы с форум-топиками |
 | `TELEGRAM_SUPERVISOR_SUPERADMIN_ID` | Telegram ID первого администратора |
+
+### Vault
+
+| Переменная | Описание |
+|---|---|
+| `VAULT_ENCRYPTION_KEY` | Base64-ключ (32 байта) для шифрования чувствительных данных. Генерация: `openssl rand -base64 32` |
 
 ## Маршрутизация
 
